@@ -84,6 +84,7 @@ public class NewsUpdate extends AppCompatActivity {
             Log.d("adapter", ""+adapter.getCount());
             //     adapter.notifyDataSetChanged();
 
+            adapter.notifyDataSetChanged();
 
 
             NeverEmptyListView neverEmptyListView=(NeverEmptyListView)findViewById(R.id.listview1);
