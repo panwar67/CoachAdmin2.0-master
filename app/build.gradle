@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "admin.coach.panwar.com.coachadmin"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -26,4 +26,6 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'com.github.mskurt:NeverEmptyListView:v1.0.1'
+    compile 'com.github.fenjuly:FloorListView:444c457022'
+    compile "com.daimajia.swipelayout:library:1.2.0@aar"
 }

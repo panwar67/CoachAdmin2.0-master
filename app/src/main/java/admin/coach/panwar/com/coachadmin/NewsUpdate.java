@@ -1,5 +1,6 @@
 package admin.coach.panwar.com.coachadmin;
 
+import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -38,7 +39,7 @@ import java.util.Map;
 
 import static admin.coach.panwar.com.coachadmin.R.layout.listviewitems;
 
-public class NewsUpdate extends AppCompatActivity {
+public class NewsUpdate extends ListActivity{
 
 
     ListView listView;
@@ -50,8 +51,7 @@ public class NewsUpdate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_update);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         dbHelper = new DBHelper(getApplicationContext());
 
@@ -79,7 +79,7 @@ public class NewsUpdate extends AppCompatActivity {
             Log.d("arraylist",  ""+newstitles.size());
             String[] newstitless =  newstitles.toArray(new String[newstitles.size()]);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), listviewitems,R.id.newheader , newstitless);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.listviewitems,R.id.newheader , newstitless);
 
             Log.d("adapter", ""+adapter.getCount());
             //     adapter.notifyDataSetChanged();
@@ -90,6 +90,8 @@ public class NewsUpdate extends AppCompatActivity {
             NeverEmptyListView neverEmptyListView=(NeverEmptyListView)findViewById(R.id.listview1);
 
             neverEmptyListView.refreshDrawableState();
+
+            neverEmptyListView.invalidate();
             neverEmptyListView.notifyDataSetChanged(adapter);
             neverEmptyListView.setAdapter(adapter);
 

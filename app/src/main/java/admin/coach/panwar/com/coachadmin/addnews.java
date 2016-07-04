@@ -97,7 +97,8 @@ public class addnews extends AppCompatActivity {
                             String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
                             dbHelper.InsertNews(titlees,des,date);
-                            startActivity(new Intent(addnews.this,NewsUpdate.class));
+                            startActivity(new Intent(addnews.this,NewsList.class));
+                            finish();
 
 
                         }

@@ -42,11 +42,13 @@ public class OptionActivity extends AppCompatActivity {
 
 
         dbHelper = new DBHelper(getApplicationContext());
+        setUpProfile();
+
         Button button = (Button)findViewById(R.id.button8);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OptionActivity.this,NewsUpdate.class));
+                startActivity(new Intent(OptionActivity.this,NewsList.class));
             }
         });
 
@@ -82,10 +84,12 @@ public class OptionActivity extends AppCompatActivity {
                         {
 
 
+
                             try {
                                 JSONObject profile = new JSONObject(s);
                                 JSONArray data = profile.getJSONArray("NEWS");
 
+                                dbHelper.InitLogin();
                                 for(int i=0;i<data.length();i++){
 
                                     JSONObject details = data.getJSONObject(i);
@@ -260,6 +264,5 @@ public class OptionActivity extends AppCompatActivity {
          */
 
     }
-
 
 }
