@@ -13,13 +13,32 @@
     tools:showIn="@layout/activity_final_team">
 
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:hint="@string/teamtitle"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:hint="@string/teamdes"
+        android:id="@+id/editText3"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editText" />
 
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type Player Name"
         android:ems="10"
-        android:id="@+id/addplayer"/>
+        android:id="@+id/addplayer"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

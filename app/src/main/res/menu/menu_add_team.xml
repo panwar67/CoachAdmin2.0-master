@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="admin.coach.panwar.com.coachadmin.AddTeam">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/addteam"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Add New Team"
         app:showAsAction="never" />
 </menu>

@@ -33,6 +33,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + table_name + " (" + Title + " text, " + start_date + " text, " + description + " text)");
         db.execSQL("CREATE TABLE "+Profile_Strut.profile_table+" ( "+Profile_Strut.uid+" text, "+Profile_Strut.fname+" text, "+Profile_Strut.lname+" text, "+Profile_Strut.fatname+" text, "+Profile_Strut.motname+" text, "+Profile_Strut.mob+" text, "+Profile_Strut.tel+" text, "+Profile_Strut.email+" text, "+Profile_Strut.ADDR+" text, "+Profile_Strut.city+" text, "+Profile_Strut.dob+" date, "+Profile_Strut.pob+" text, "+Profile_Strut.dist+" text, "+Profile_Strut.state+" text, "+Profile_Strut.bld+" text, "+Profile_Strut.bat+" text, "+Profile_Strut.bwl+" text,"+Profile_Strut.bwlpro+" text, "+Profile_Strut.wk+" text, "+Profile_Strut.images+" text,"  );
+        db.execSQL("CREATE TABLE " + Team_Strut.team_table + " (" + Team_Strut.team_title + " text, " + Team_Strut.team_date + " text");
+
 
 
     }
@@ -57,16 +59,25 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor GetPlayers(){
+    public ArrayList<String> GetPlayers(){
 
+        ArrayList<String> names = new ArrayList<String>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select "++" from "+table_name+"",null);
+        Cursor res = db.rawQuery("select * from "+Profile_Strut.profile_table+"",null);
         res.moveToFirst();
+        while (!res.isAfterLast()){
+
+            String fname = res.getString(res.getColumnIndex(Profile_Strut.fname));
+            String lname = res.getString(res.getColumnIndex(Profile_Strut.lname));
+            Log.d("AutocompleteList",fname+""+lname);
+            names.add(fname+" "+lname);
+
+        }
 
 
 
 
-    }
+    return names; }
 
 
 
@@ -142,6 +153,44 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return pass;
     }
+
+
+
+    public ArrayList<String> getTeamTitle(){
+
+        ArrayList<String> titles = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select "+Team_Strut.team_title+" from "+table_name+"",null);
+        res.moveToFirst();
+
+        if(res!=null){
+
+            while(!res.isAfterLast()){
+
+                String names = res.getString(res.getColumnIndex(Title));
+
+
+                titles.add(names);
+
+                Log.d("DB team list",names);
+
+                res.moveToNext();
+
+            }}else {
+
+
+            titles.add("No new Team");
+        }
+
+        return titles;
+
+    }
+
+
+
+
+
+
 
 
     public ArrayList<String> getNewsTitle(){

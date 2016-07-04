@@ -36,7 +36,7 @@ public class AddTeam extends ListActivity {
 
 
     DBHelper dbHelper;
-    ArrayList<String> newstitles = new ArrayList<String>();
+    ArrayList<String> teamtitles = new ArrayList<String>();
     String DOWN_URL = "http://www.whydoweplay.com/CoachData/getnews.php";
 
     @Override
@@ -46,6 +46,12 @@ public class AddTeam extends ListActivity {
 
         dbHelper = new DBHelper(getApplicationContext());
         //setUpProfile();
+
+
+        teamtitles = dbHelper.getTeamTitle();
+
+        setListAdapter(new ArrayAdapter<String>(AddTeam.this,
+                android.R.layout.simple_list_item_1 ,teamtitles));
 
 
     }
@@ -60,8 +66,8 @@ public class AddTeam extends ListActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId()==R.id.addnews){
-            startActivity(new Intent(AddTeam.this,AddNewTeam.class));
+        if(item.getItemId()==R.id.addteam){
+            startActivity(new Intent(AddTeam.this,FinalTeam.class));
 
         }
         return super.onOptionsItemSelected(item);
@@ -114,7 +120,7 @@ public class AddTeam extends ListActivity {
                                 String blood = details.getString("BLDGRP");
                                 String image = details.getString("IMAGE");
 
-                                    dbHelper.InsertLeagueTable(uid,fname,lname,fatname,motname,dob,pob,add,city,dist,state,mob,tel,email,bat,bwl,bwlatt,wck,blood,image);
+                                    dbHelper.InsertProfileTable(uid,fname,lname,fatname,motname,dob,pob,add,city,dist,state,mob,tel,email,bat,bwl,bwlatt,wck,blood,image);
 
                                 }
                                 Log.d("profile data", s);
