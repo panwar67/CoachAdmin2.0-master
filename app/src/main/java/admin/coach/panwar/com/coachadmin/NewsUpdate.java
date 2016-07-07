@@ -79,7 +79,7 @@ public class NewsUpdate extends ListActivity{
             Log.d("arraylist",  ""+newstitles.size());
             String[] newstitless =  newstitles.toArray(new String[newstitles.size()]);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.listviewitems,R.id.newheader , newstitless);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.listviewitems,R.id.plyhead , newstitless);
 
             Log.d("adapter", ""+adapter.getCount());
             //     adapter.notifyDataSetChanged();

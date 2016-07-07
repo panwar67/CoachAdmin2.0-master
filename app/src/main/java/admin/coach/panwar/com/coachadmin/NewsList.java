@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -48,6 +51,28 @@ public class NewsList extends ListActivity {
 
         setListAdapter(new ArrayAdapter<String>(NewsList.this,
                 android.R.layout.simple_list_item_1 ,newstitles));
+
+
+
+
+
+        ListView listView = getListView();
+        listView.invalidate();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("lisviewitem",""+position);
+                String team = newstitles.get(position);
+                Intent delete = new Intent(NewsList.this,DeleteNews.class);
+                delete.putExtra("news",team);
+                startActivity(delete);
+
+
+
+            }
+        });
+
+
 
 
 

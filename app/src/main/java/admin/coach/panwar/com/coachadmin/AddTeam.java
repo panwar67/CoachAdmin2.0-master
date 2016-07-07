@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -52,6 +54,22 @@ public class AddTeam extends ListActivity {
 
         setListAdapter(new ArrayAdapter<String>(AddTeam.this,
                 android.R.layout.simple_list_item_1 ,teamtitles));
+
+        ListView listView = getListView();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("lisviewitem",""+position);
+                String team = teamtitles.get(position);
+                Log.d("team", team);
+                Intent delete = new Intent(AddTeam.this,DeleteTeam.class);
+                delete.putExtra("tablename",team);
+                startActivity(delete);
+
+
+
+            }
+        });
 
 
     }

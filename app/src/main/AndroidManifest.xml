@@ -32,7 +32,7 @@
         <activity
             android:name=".AddTeam"
             android:label="@string/title_activity_add_team"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Widget.AppCompat.ActionBar" />
         <activity
             android:name=".NewsUpdate"
             android:label="@string/title_activity_news_update"
@@ -55,6 +55,14 @@
         <activity
             android:name=".FinalTeam"
             android:label="@string/title_activity_final_team"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DeleteTeam"
+            android:label="@string/title_activity_delete_team"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DeleteNews"
+            android:label="@string/title_activity_delete_news"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -106,7 +106,9 @@
     <string name="title_activity_add_new_team">AddNewTeam</string>
     <string name="teamtitle">Enter Team Title</string>
     <string name="teamstren">Enter Team Strength</string>
-    <string name="teamdes">Enter Team Description</string>
+    <string name="teamdes">Enter Team Date</string>
     <string name="title_activity_final_team">FinalTeam</string>
+    <string name="title_activity_delete_team">DeleteTeam</string>
+    <string name="title_activity_delete_news">DeleteNews</string>
 
 </resources>

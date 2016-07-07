@@ -12,7 +12,7 @@ public class Profile_Strut {
     public static String fatname = "FATNAME";
     public static String motname = "MOTNAME";
     public static String email = "EMAIL";
-    public static String mob = "MOBILE";
+    public static String mob = "MOB";
     public static String dob = "DOB";
     public static String pob = "POB";
     public static String ADDR = "ADDR";
