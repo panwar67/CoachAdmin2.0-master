@@ -50,7 +50,7 @@ public class AddTeam extends ListActivity {
         //setUpProfile();
 
 
-        teamtitles = dbHelper.getTeamTitle();
+        //teamtitles = dbHelper.getTeamTitle();
 
         setListAdapter(new ArrayAdapter<String>(AddTeam.this,
                 android.R.layout.simple_list_item_1 ,teamtitles));
@@ -65,6 +65,7 @@ public class AddTeam extends ListActivity {
                 Intent delete = new Intent(AddTeam.this,DeleteTeam.class);
                 delete.putExtra("tablename",team);
                 startActivity(delete);
+
 
 
 

@@ -56,14 +56,14 @@ public class OptionActivity extends AppCompatActivity {
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OptionActivity.this,AddTeam.class));
+                startActivity(new Intent(OptionActivity.this,TeamAdd.class));
             }
         });
         Button button = (Button)findViewById(R.id.button8);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OptionActivity.this,NewsList.class));
+                startActivity(new Intent(OptionActivity.this,NewsAdd.class));
             }
         });
 

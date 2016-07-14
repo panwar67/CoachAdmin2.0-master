@@ -21,33 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:parentActivityName=".OptionActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="admin.coach.panwar.com.coachadmin.OptionActivity" />
-        </activity>
-        <activity
             android:name=".AddTeam"
             android:label="@string/title_activity_add_team"
             android:theme="@style/Widget.AppCompat.ActionBar" />
         <activity
-            android:name=".NewsUpdate"
-            android:label="@string/title_activity_news_update"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".addnews"
             android:label="@string/title_activity_addnews"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Main3Activity"
-            android:label="@string/title_activity_main3"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".NewsList"
-            android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
         <activity
             android:name=".AddNewTeam"
             android:label="@string/title_activity_add_new_team"
@@ -63,6 +43,14 @@
         <activity
             android:name=".DeleteNews"
             android:label="@string/title_activity_delete_news"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TeamAdd"
+            android:label="@string/title_activity_team_add"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewsAdd"
+            android:label="@string/title_activity_news_add"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

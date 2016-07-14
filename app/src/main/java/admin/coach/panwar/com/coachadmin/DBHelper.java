@@ -40,7 +40,7 @@ public class DBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + table_name + " (" + Title + " text, " + start_date + " text, " + description + " text)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + table_name + " (" +Title+ " text, " +start_date+ " text, " +description+ " text)");
         db.execSQL("CREATE TABLE "+Profile_Strut.profile_table+" ( "+Profile_Strut.uid+" text, "+Profile_Strut.fname+" text, "+Profile_Strut.lname+" text, "+Profile_Strut.fatname+" text, "+Profile_Strut.motname+" text, "+Profile_Strut.mob+" text, "+Profile_Strut.tel+" text, "+Profile_Strut.email+" text, "+Profile_Strut.ADDR+" text, "+Profile_Strut.city+" text, "+Profile_Strut.dob+" date, "+Profile_Strut.pob+" text, "+Profile_Strut.dist+" text, "+Profile_Strut.state+" text, "+Profile_Strut.bld+" text, "+Profile_Strut.bat+" text, "+Profile_Strut.bwl+" text, "+Profile_Strut.bwlpro+" text, "+Profile_Strut.wk+" text, "+Profile_Strut.images+" text)"  );
         db.execSQL("CREATE TABLE " + Team_Strut.team_table + " (" + Team_Strut.team_title + " text, " + Team_Strut.team_date + " text)");
 
@@ -225,35 +225,42 @@ public class DBHelper extends SQLiteOpenHelper
 
 
 
-    public ArrayList<String> getTeamTitle(){
+    public ArrayList<HashMap<String,String>> getTeamsData(){
 
-        ArrayList<String> titles = new ArrayList<String>();
+        ArrayList<HashMap<String,String>> titles = new ArrayList<HashMap<String,String>>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select "+Team_Strut.team_title+" from "+Team_Strut.team_table,null);
+        Cursor res = db.rawQuery("select * from "+Team_Strut.team_table,null);
         res.moveToFirst();
 
         if(res!=null){
 
             while(!res.isAfterLast()){
 
+                HashMap<String,String> temp = new HashMap<String, String>();
                 String names = res.getString(res.getColumnIndex(Team_Strut.team_title));
+                String date = res.getString(res.getColumnIndex(Team_Strut.team_date));
 
-
-                titles.add(names);
-
+                temp.put("title",names);
+                temp.put("date",date);
                 Log.d("DB team list",names);
+
+                titles.add(temp);
 
                 res.moveToNext();
 
             }}else {
 
 
-            titles.add("No new Team");
         }
 
         return titles;
 
     }
+
+
+
+
+
 
 
     public ArrayList<HashMap<String, String>> composeJSONfromSQLite(){
@@ -414,43 +421,36 @@ public class DBHelper extends SQLiteOpenHelper
 
 
 
-    public ArrayList<String> getNewsTitle(){
+    public ArrayList<HashMap<String,String>> getNewsTitle(){
 
-        ArrayList<String> titles = new ArrayList<String>();
+        ArrayList<HashMap<String,String>> titles = new ArrayList<HashMap<String,String>>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select "+Title+" from "+table_name+"",null);
+        Cursor res = db.rawQuery("select * from "+table_name+"",null);
         res.moveToFirst();
 
-        if(res!=null){
+        if(res!=null)
+        {
 
-        while(!res.isAfterLast()){
+        while(!res.isAfterLast())
+        {
 
+            HashMap<String, String> map = new HashMap<String, String>();
             String names = res.getString(res.getColumnIndex(Title));
 
 
-            titles.add(names);
-
+            map.put("title",res.getString(res.getColumnIndex(Title)));
+            map.put("date",res.getString(res.getColumnIndex(start_date)));
+            map.put("des",res.getString(res.getColumnIndex(description)));
             Log.d("dbfor listviewget",names);
 
+
+            titles.add(map);
             res.moveToNext();
 
-        }}else {
-
-
-            titles.add("No new News");
+        }
         }
 
         return titles;
 
-    }
-
-    public Cursor GetNewsData() {
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from "+table_name+"", null);
-
-        res.moveToFirst();
-//        cursor.moveToFirst();
-        return res;
     }
 }

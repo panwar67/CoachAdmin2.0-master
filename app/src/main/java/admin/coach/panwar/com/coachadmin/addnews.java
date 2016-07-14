@@ -97,7 +97,7 @@ public class addnews extends AppCompatActivity {
                             String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
                             dbHelper.InsertNews(titlees,des,date);
-                            startActivity(new Intent(addnews.this,NewsList.class));
+                            startActivity(new Intent(addnews.this,NewsAdd.class));
                             finish();
 
 
@@ -156,8 +156,9 @@ public class addnews extends AppCompatActivity {
         return false;
     }
 
-
-
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(addnews.this,NewsAdd.class));
+    }
 }

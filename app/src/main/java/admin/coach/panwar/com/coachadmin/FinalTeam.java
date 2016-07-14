@@ -223,7 +223,8 @@ public class FinalTeam extends AppCompatActivity {
                             Log.d("response", s.toString());
 
 
-                            Intent intent = new Intent(FinalTeam.this,AddTeam.class);
+                            loading.dismiss();
+                            Intent intent = new Intent(FinalTeam.this,TeamAdd.class);
                             startActivity(intent);
                             finish();
 
@@ -240,7 +241,7 @@ public class FinalTeam extends AppCompatActivity {
 
 
                         //Disimissing the progress dialog
-                        loading.dismiss();
+
                         //Showing toast message of the response
                     }
                 },
@@ -352,6 +353,10 @@ public class FinalTeam extends AppCompatActivity {
         return false;
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(FinalTeam.this,TeamAdd.class));
+        finish();
+    }
 }

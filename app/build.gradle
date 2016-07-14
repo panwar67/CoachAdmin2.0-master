@@ -29,4 +29,5 @@ dependencies {
     compile 'com.github.fenjuly:FloorListView:444c457022'
     compile 'com.daimajia.swipelayout:library:1.2.0@aar'
     compile 'com.google.code.gson:gson:2.7'
+    compile 'com.github.nostra13:Android-Universal-Image-Loader:v1.9.5'
 }
